@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:primeiroApp/views/home.dart';
 
 class ActionButton extends StatelessWidget {
 
@@ -31,13 +32,22 @@ class ActionButton extends StatelessWidget {
 						name,
 
 						style: TextStyle(
-
+							fontWeight: FontWeight.w600,
 							color: Colors.white,
 						)
 					)
 				),
 
-				onPressed: () {}
+				onPressed: () {
+
+					Navigator.push(
+
+						context,
+						MaterialPageRoute(
+							builder: (_) => Home()
+						)
+					);
+				} 
 			),
 
 		);

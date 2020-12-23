@@ -1,21 +1,27 @@
 import 'package:flutter/material.dart';
 
-class LoginBox extends StatelessWidget {
+class LoginBox extends StatefulWidget {
 
 	LoginBox({
-		this.icon,
-		this.title
+		this.title,
+		this.iconPath
 	});
 
-	final Image icon;
 	final Text title;
+	final String iconPath;
+
+	@override
+	_LoginBoxState createState() => _LoginBoxState();
+}
+
+class _LoginBoxState extends State<LoginBox> {
 
 	@override
 	Widget build(BuildContext context) {
 
 		return Container(
 
-			height: 90.0,
+			height: 100.0,
 			padding: EdgeInsets.all(15.0),
 			margin: EdgeInsets.all(20.0),
 
@@ -42,7 +48,7 @@ class LoginBox extends StatelessWidget {
 
 				children: <Widget>[
 
-					title,
+					widget.title,
 					
 					Row(
 
@@ -51,12 +57,31 @@ class LoginBox extends StatelessWidget {
 							Image(
 								width: 25.0,
 								height: 25.0,
-								image: AssetImage('assets/images/email.png')
+								image: AssetImage(widget.iconPath)
+							),
+
+							Expanded(
+								
+								child: TextField(
+									
+									decoration: InputDecoration(
+
+										border: InputBorder.none,
+										focusedBorder: InputBorder.none,
+										enabledBorder: InputBorder.none,
+										errorBorder: InputBorder.none,
+										disabledBorder: InputBorder.none,
+
+										contentPadding: EdgeInsets.only(
+											left: 10.0
+										)
+									)
+								)
 							)
 						],
 					)
 				]
 			)
-		);						
+		);
 	}
 }

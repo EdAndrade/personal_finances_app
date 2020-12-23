@@ -14,7 +14,7 @@ class Login extends StatelessWidget {
 		return Scaffold(
 			// #f3f8fe
 			// #3e4685
-			body: Container(
+			body: ListView(children: [Container(
 
 				decoration: BoxDecoration(
 
@@ -27,27 +27,52 @@ class Login extends StatelessWidget {
 
 					children: <Widget>[
 
-						Image(
-							width: 100.0,
-							height: 100.0,
-							image: AssetImage('assets/images/circle.png')
+						Container(
+
+							margin: EdgeInsets.only(bottom: 60.0),
+
+							child: Image(
+								width: 120.0,
+								height: 120.0,
+								image: AssetImage('assets/images/circle.png')
+							),
 						),
+						
 
 						LoginBox(
 
-							title: Text('Email Address')
+							title: Text('Email Address'),
+							iconPath: 'assets/images/email.png'
 						),
 						LoginBox(
 							
-							title: Text('Password')
+							title: Text('Password'),
+							iconPath: 'assets/images/lock.png'
 						),
 
 						ActionButton(
-							name: 'Login'
+							name: 'Login',
+						),
+
+						Container(
+							
+
+							margin: EdgeInsets.all(20.0),
+
+							child: Row(
+
+								mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
+								children: <Widget>[
+
+									Text('Cadastrar'),
+									Text('Esqueceu a password?')
+								]
+							)
 						)
 					]
 				)
-			)
+			),],),
 		);
 	}
 }
